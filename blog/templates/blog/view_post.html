@@ -1,0 +1,8 @@
+<h1>{{ blog_post.post_title }}</h1>
+<p>{{ blog_post.content_text }}</p>
+<p>No. of upvotes: {{ blog_post.upvotes }}</p>
+<form action="{% url 'upvote' blog_post.id %}" method="post">
+{% csrf_token %}
+<input type="submit" value="Vote">
+</form>
+<a href="{% url 'index' %}">Go back</a>
