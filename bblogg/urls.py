@@ -20,5 +20,3 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),
 ]
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-urlpatterns += staticfiles_urlpatterns()
