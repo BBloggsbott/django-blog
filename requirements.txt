@@ -1,4 +1,8 @@
+dj-static
 django
 gunicorn
 whitenoise
 psycopg2
+pytz
+static3
+django-bootstrap3
