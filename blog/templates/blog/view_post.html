@@ -1,8 +1,17 @@
-<h1>{{ blog_post.post_title }}</h1>
-<p>{{ blog_post.content_text }}</p>
-<p>No. of upvotes: {{ blog_post.upvotes }}</p>
+<head>
+    <title>{% block title %}BBloggsbott - Blog{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}">
+</head>
+<div class='header'><a href='/' class='title_link hvr-grow'>b<span class='color_gray'>blog</span>gsbott</a><span class='keep_center'>{{ blog_post.post_title }}</span></div>
+
+<div class='spacer'></div>
+<div class='box'>
+<p>{{ blog_post.content_text|linebreaks }}</p>
 <form action="{% url 'upvote' blog_post.id %}" method="post">
 {% csrf_token %}
-<input type="submit" value="Vote">
+<input type="submit" value="Upvote" class='button'>
+<p>Upvotes: {{ blog_post.upvotes }}</p>
 </form>
 <a href="{% url 'index' %}">Go back</a>
+</div>

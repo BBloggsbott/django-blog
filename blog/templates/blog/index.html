@@ -1,12 +1,16 @@
-{% load static %}
+<head>
+    <title>{% block title %}BBloggsbott - Blog{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}">
+</head>
+<div class='header'><a href='/' class='title_link hvr-grow'>b<span class='color_gray'>blog</span>gsbott</a></div>
 
-<link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}">
+<div class='spacer'></div>
 
 {% if latest_post_list %}
-    <ul>
     {% for post in latest_post_list %}
-        <li><a href="{% url 'view_post' post.id %}">{{ post.post_title }}</a></li>    {% endfor %}
-    </ul>
+        <div class='box'><p><a href="{% url 'view_post' post.id %}">{{ post.post_title }}</a></p></div>    {% endfor %}
 {% else %}
     <p>No posts are available.</p>
 {% endif %}
+

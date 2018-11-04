@@ -6,7 +6,7 @@ class BlogPost(models.Model):
     post_title = models.CharField(max_length = 200)
     pub_date = models.DateTimeField('date published')
     content_text = models.TextField()
-    upvotes = models.IntegerField()
+    upvotes = models.IntegerField(default=0)
 
     def was_published_recently(self):
         now = timezone.now()
